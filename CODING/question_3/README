@@ -1,0 +1,45 @@
+This is the sudoku checking question
+2 sudoku provided for checking 
+
+Functions
+
+input()
+
+takes input 
+
+input :
+123 456 789
+345 678 192
+
+entered as
+1
+2
+3
+4
+5
+6
+7
+8
+9
+3
+4
+2
+6
+7
+8
+1
+9
+2
+
+only done for my convenience , bear with me please 
+
+display()
+
+displays the whole sudoku 
+
+test()
+
+tests for the validity of the sudoku
+The test function can be used as a stand alone with an array named sud[9][9]
+
+HAVE FUN!
