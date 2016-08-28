@@ -1,6 +1,10 @@
 This is the sudoku checking question
 2 sudoku provided for checking 
 
+Logic:
+
+Each row and column should contain each digit form 1-9 only once
+
 Functions
 
 input()
@@ -41,5 +45,14 @@ test()
 
 tests for the validity of the sudoku
 The test function can be used as a stand alone with an array named sud[9][9]
+
+
+NOTE :
+
+Improvements in code saved as question_3_2.cpp
+
+Increased code efficiency.
+The row check takes place while input is being taken.
+Removed a couple of for loops (less number of iterations taking place now).
 
 HAVE FUN!
