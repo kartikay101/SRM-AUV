@@ -1,5 +1,5 @@
 long echo = 0; // stores the recieved echo 
-int USpin = 9; // pin on which the 
+int USpin = 9; // pin on which the Ultra sonic sensor is connected
 double USvalue = 0; // stores the ultra sonic signal value
 double data[64]; // data array for storage of the recieved data
 int t = 0; // counter to store array position
