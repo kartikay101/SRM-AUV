@@ -46,6 +46,8 @@ test()
 tests for the validity of the sudoku
 The test function can be used as a stand alone with an array named sud[9][9]
 
+Explanation
+The code checks if a number 0 to 9 is repeated in either a row or a column , if this happens then the suduko is invalid else it is valid
 
 NOTE :
 
