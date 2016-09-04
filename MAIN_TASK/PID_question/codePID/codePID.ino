@@ -100,10 +100,10 @@ void thruster(double PID, int k) {        // using BLUE ROBOTICS® T100 thruster
   //thruster code here
   if (k == 1) {                           // k=1 handles positive error
     
-    servo.writeMicroseconds(((1900-1500)/setPoint)*PID);       // averaging values
+    servo.writeMicroseconds((1500+((1900-1500)/setPoint)*PID)));       // averaging values
   }
   if(k == 0){                             // k=0 handles negative error
-    servo.writeMicroseconds(abs(((1100-1500)/setPoint)*PID));  // averaging values ,abs() function to avoid negative values
+    servo.writeMicroseconds((1100+(abs(((1100-1500)/setPoint)*PID)));  // averaging values ,abs() function to avoid negative values
   }
   delay(100);                             // 0.1 seconds delay for motor to adjust
 }
