@@ -18,9 +18,11 @@ double  Current_val = 0;        // current Sensor Value
 double  Time = 0;               // Time taken by function to run
 double  PID_val = 0;            // sum of P,I,D value
 Servo   servo;                  // T100 servo
-byte    servoPin = 10;           // attach servo to PWM pin 10
+byte    servoPin = 10;          // attach servo to PWM pin 10
 double  Max_val=setPoint;       // Maximum PID value
-double  Min_val=-1*setPoint;     // Minimum PID value
+double  Min_val=-1*setPoint;    // Minimum PID value
+unsigned long time=0;           // to store time
+unsigned long prevTime=0;	// to store previous time	
 
 void setup()                    // Initial Setting for values
 {
@@ -42,8 +44,9 @@ void loop() {                         // PID implementation here
   Current_val = sensor_val();         // Recieve value form the sensor
   error = setPoint - Current_val;     // Change error value
   
+  time =millis();
   P_val = Kp * (error);               // P calculated here
-  
+	  
   if (error < 20 && error > -20)      // I calculated only if absolute error is less than 20 (can be altered)
   {
     I_val = I_val + Ki * (error);
@@ -53,7 +56,7 @@ void loop() {                         // PID implementation here
     I_val = (50 / Ki);                // Mainitaining I under a specific point (As I increases very fast)
 
   }
-  D_val = Kd * (error - prevError);   // D calculated here
+  D_val = Kd * (error - prevError)/((time-prevTime)/1000);   // D calculated here
 
   PID_val = P_val + I_val + D_val;    // P I D calculated here
 
@@ -89,6 +92,7 @@ void loop() {                         // PID implementation here
     delay(1000);
   }
   prevError = error;                      // set new value to prevError
+  prevTime  = time;   			  // set old value of time to previous time	
 }
 
 double sensor_val() {
